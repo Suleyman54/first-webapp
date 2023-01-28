@@ -1,18 +1,16 @@
 package com.example.firstwebapp.controller;
 
+import com.example.firstwebapp.domain.Product;
 import com.example.firstwebapp.service.ProductService;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.*;
+import java.util.List;
 
-@Component
-@Path("/v1/first-webapp")
+@RestController
+@RequestMapping(path = "/v1/first-webapp")
 public class ProductController {
 
     private final ProductService productService;
@@ -21,8 +19,8 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GET
-    @Path("/product-add-status")
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response getStatusProductAdded()
+    @GetMapping
+    public List<Product> getProducts(){
+        return productService.getProduct();
+    }
 }

@@ -1,16 +1,24 @@
 package com.example.firstwebapp.service;
 
 import com.example.firstwebapp.domain.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
+public class ProductService {
 
-public interface ProductService {
+    public List<Product> getProduct(){
+        return List.of(
+                new Product("Nintendo Switch",
+                        500,
+                        "A very nice Nintendo Switch",
+                        "243X5CF7D",
+                        5
+                )
+        );
+    }
 
-    public Boolean addProduct(Product p);
-
-    public Boolean deleteProduct(int id);
-
-    public Product getProduct(int id);
-
-    public List<Product> getAllProducts();
+    public List<Product> addProduct(){
+        return null;
+    }
 }
