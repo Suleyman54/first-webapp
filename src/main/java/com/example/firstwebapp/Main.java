@@ -12,6 +12,7 @@ public class Main {
         SpringApplication.run(Main.class, args);
 
         // p1 = new Product("Nintendo Switch", 500, "A very nice Nintendo Switch", "243X5CF7D", 5);
+
     }
 
 }
